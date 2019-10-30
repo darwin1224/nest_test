@@ -2,7 +2,9 @@ FROM node:12.9.0-alpine
 
 WORKDIR /var/www/html
 
-RUN apk add --no-cache bash && yarn cache clean -f
+RUN apk add --no-cache bash \
+  && npm install -g @nestjs/cli \
+  && yarn cache clean -f
 
 COPY . .
 
